@@ -26,8 +26,8 @@ object Uname:
     (format, vargs)
   end assembleData
 
-  def main(args: Array[String]): Unit =
-    val opts = Flagged.parseOrExit[Options](args.toIndexedSeq)
+  def command(args: IArray[String]): Unit =
+    val opts = Flagged.parseOrExit[Options](args)
     val parsed = ParsedOptions.fromOptions(opts)
 
     val u = stackalloc[utsname]()
@@ -37,4 +37,7 @@ object Uname:
 
     val (format, vargs) = assembleData(parsed, u)
     printf(format, vargs*)
-  end main
+  end command
+
+  def main(args: Array[String]): Unit =
+    command(IArray.unsafeFromArray(args))
