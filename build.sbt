@@ -12,5 +12,6 @@ lazy val root = project.in(file("."))
     ),
     nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
     buildInfoKeys := Seq[BuildInfoKey](version),
-    buildInfoPackage := "io.vasilev.uname"
+    buildInfoPackage := "io.vasilev.uname",
+    testOptions += Tests.Argument(TestFrameworks.MUnit, "+l")
   )
