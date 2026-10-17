@@ -22,11 +22,11 @@ object Uname:
 
     val count = vargs.size
 
-    val format = IArray.fill(count)("%s").mkString(start = "", sep = " ", end = "\n")
+    val format = IArray.fill(count)("%s").mkString(sep = " ")
     (format, vargs)
   end assembleData
 
-  def command(args: IArray[String]): Unit =
+  def command(args: Seq[String]): String =
     val opts = Flagged.parseOrExit[Options](args)
     val parsed = ParsedOptions.fromOptions(opts)
 
@@ -36,8 +36,9 @@ object Uname:
       sys.error("Failed to obtain uname data from the system")
 
     val (format, vargs) = assembleData(parsed, u)
-    printf(format, vargs*)
+    String.format(format, vargs*)
   end command
 
   def main(args: Array[String]): Unit =
-    command(IArray.unsafeFromArray(args))
+    val s = command(args.toIndexedSeq)
+    println(s)

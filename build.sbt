@@ -6,7 +6,10 @@ lazy val root = project.in(file("."))
     name := "uname-scala",
     version := "0.1.0",
     scalaVersion := "3.9.0",
-    libraryDependencies += "io.github.bishabosha" %% "flagged" % "1.0.0",
+    libraryDependencies ++= Seq(
+      "io.github.bishabosha" %% "flagged" % "1.0.0",
+      "org.scalameta" %% "munit-scalacheck" % "1.3.1" % Test
+    ),
     nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
     buildInfoKeys := Seq[BuildInfoKey](version),
     buildInfoPackage := "io.vasilev.uname"
