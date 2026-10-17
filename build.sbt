@@ -5,8 +5,6 @@ lazy val root = project.in(file("."))
   .settings(
     name := "uname-scala",
     scalaVersion := "3.9.0",
-    nativeConfig ~= { c =>
-      c.withGC(GC.none)
-        .withLTO(LTO.full)
-    }
+    libraryDependencies += "io.github.bishabosha" %% "flagged" % "1.0.0",
+    nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) }
   )
