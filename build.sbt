@@ -4,6 +4,7 @@ lazy val root = project.in(file("."))
   .enablePlugins(ScalaNativePlugin, BuildInfoPlugin)
   .settings(
     name := "uname-scala",
+    version := "0.1.0",
     scalaVersion := "3.9.0",
     libraryDependencies += "io.github.bishabosha" %% "flagged" % "1.0.0",
     nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
