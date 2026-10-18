@@ -10,7 +10,8 @@ lazy val root = project.in(file("."))
       "io.github.bishabosha" %% "flagged" % "1.0.0",
       "org.scalameta" %% "munit-scalacheck" % "1.3.1" % Test
     ),
-    nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
+    Compile / nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
+    Test / nativeConfig ~= { _.withGC(GC.immix) },
     buildInfoKeys := Seq[BuildInfoKey](version),
     buildInfoPackage := "io.vasilev.uname",
     testOptions += Tests.Argument(TestFrameworks.MUnit, "+l")

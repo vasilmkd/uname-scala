@@ -1,0 +1,30 @@
+name: uname-scala CI
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_and_test:
+    name: uname-scala build and test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up JDK
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 27
+          cache: sbt
+
+      - name: Set up sbt
+        uses: sbt/setup-sbt@v1
+
+      - name: Run tests
+        run: sbt test
