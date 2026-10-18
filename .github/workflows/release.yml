@@ -54,7 +54,8 @@ jobs:
             exit 1
           fi
 
-          sbt test nativeLinkReleaseFull
+          sbt test
+          sbt nativeLinkReleaseFull
 
           BINARY=$(find target -type f -name "uname-scala-release-full" | head -n 1)
           if [ -z "$BINARY" ]; then
