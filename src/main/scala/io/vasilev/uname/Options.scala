@@ -2,7 +2,7 @@ package io.vasilev.uname
 
 import flagged.{Parser, Versioned, cmd, opt, version}
 
-@cmd(name = "uname", help = "Print certain system information. With no option, same as -s.")
+@cmd(name = "uname", help = "Print system information")
 @version(dynamic = true)
 final case class Options(
   @opt(help = "print all information, in the following order", short = 'a') all: Boolean = false,
