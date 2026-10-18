@@ -2,15 +2,25 @@ name: uname-scala CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build_and_test:
-    name: uname-scala build and test
+    name: uname-scala build and test (${{ matrix.name }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        include:
+          - os: ubuntu-latest
+            name: Linux x86_64
+          - os: ubuntu-24.04-arm
+            name: Linux arm64
+          - os: macos-15-intel
+            name: macOS x86_64
+          - os: macos-latest
+            name: macOS arm64
 
     steps:
       - name: Check out the repository
@@ -28,3 +38,6 @@ jobs:
 
       - name: Run tests
         run: sbt test
+
+      - name: Build release binary
+        run: sbt nativeLinkReleaseFull

@@ -1,6 +1,6 @@
 import scala.scalanative.build.{GC, LTO}
 
-lazy val root = project.in(file("."))
+lazy val `uname-scala` = project.in(file("."))
   .enablePlugins(ScalaNativePlugin, BuildInfoPlugin)
   .settings(
     name := "uname-scala",
