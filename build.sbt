@@ -10,7 +10,7 @@ lazy val `uname-scala` = project.in(file("."))
       "io.github.bishabosha" %% "flagged" % "1.0.0",
       "org.scalameta" %% "munit-scalacheck" % "1.3.1" % Test
     ),
-    Compile / nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full).withMultithreading(false) },
+    Compile / nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
     Test / nativeConfig ~= { _.withGC(GC.immix).withLTO(LTO.none) },
     Test / logBuffered := false,
     buildInfoKeys := Seq[BuildInfoKey](version),
