@@ -4,7 +4,7 @@ The most basic implementation of the `uname` (`unix name`) Unix utility program 
 
 ## Installation
 
-Pre-compiled standalone binaries for each supported platform (Linux and macOS on both x86_64 and arm64) along with SHA-256 checksums are available on the [Releases](https://github.com/vasilmkd/uname-scala/releases) page.
+Pre-compiled standalone binaries for each supported platform (Linux on x86_64 and aarch64, and macOS on x86_64 and arm64) along with SHA-256 checksums are available on the [Releases](https://github.com/vasilmkd/uname-scala/releases) page.
 
 Download the appropriate binary and its `.sha256` file, verify its integrity, make it executable, and move it into your `PATH`:
 ```shell
