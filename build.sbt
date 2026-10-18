@@ -14,6 +14,5 @@ lazy val `uname-scala` = project.in(file("."))
     Test / nativeConfig ~= { _.withGC(GC.immix).withLTO(LTO.none) },
     Test / logBuffered := false,
     buildInfoKeys := Seq[BuildInfoKey](version),
-    buildInfoPackage := "io.vasilev.uname",
-    testOptions += Tests.Argument(TestFrameworks.MUnit, "+l")
+    buildInfoPackage := "io.vasilev.uname"
   )
