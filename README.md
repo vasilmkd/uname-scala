@@ -2,10 +2,9 @@
 
 The most basic implementation of the `uname` (`unix name`) Unix utility program in Scala Native.
 
-Equivalent to:
-```shell
-uname -a
-```
+## Building from sources
+
+Check the environment setup [guide](https://scala-native.org/en/latest/user/setup.html) from Scala Native.
 
 Use the following command to assemble the production optimized binary:
 ```shell
