@@ -12,6 +12,7 @@ lazy val root = project.in(file("."))
     ),
     Compile / nativeConfig ~= { _.withGC(GC.none).withLTO(LTO.full) },
     Test / nativeConfig ~= { _.withGC(GC.immix) },
+    Test / logBuffered := false,
     buildInfoKeys := Seq[BuildInfoKey](version),
     buildInfoPackage := "io.vasilev.uname",
     testOptions += Tests.Argument(TestFrameworks.MUnit, "+l")
