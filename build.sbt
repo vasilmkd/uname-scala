@@ -4,7 +4,7 @@ lazy val `uname-scala` = project.in(file("."))
   .enablePlugins(ScalaNativePlugin, BuildInfoPlugin)
   .settings(
     name := "uname-scala",
-    version := "1.0.0",
+    version := "1.0.1",
     scalaVersion := "3.10.0",
     libraryDependencies ++= Seq(
       "io.github.bishabosha" %% "flagged" % "1.0.0",
