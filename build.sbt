@@ -5,7 +5,7 @@ lazy val `uname-scala` = project.in(file("."))
   .settings(
     name := "uname-scala",
     version := "1.0.0",
-    scalaVersion := "3.9.0",
+    scalaVersion := "3.10.0",
     libraryDependencies ++= Seq(
       "io.github.bishabosha" %% "flagged" % "1.0.0",
       "org.scalameta" %% "munit-scalacheck" % "1.3.1" % Test
